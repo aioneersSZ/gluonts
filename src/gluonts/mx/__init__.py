@@ -61,6 +61,7 @@ from .model.seq2seq import (
     Seq2SeqEstimator,
 )
 from .model.simple_feedforward import SimpleFeedForwardEstimator
+from .model.feedforward import FeedForwardEstimator
 from .model.tft import TemporalFusionTransformerEstimator
 from .model.tpp import (
     PointProcessGluonPredictor,
