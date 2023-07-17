@@ -16,7 +16,6 @@ from typing import Dict, List, Optional, Union
 import copy
 import numpy as np
 import pandas as pd
-import xgboost
 import gc
 from collections import defaultdict
 
@@ -100,6 +99,8 @@ class QRX:
             Hyperparameter that determines the minimal size of the list of
             true values associated with each prediction.
         """
+        import xgboost
+
         if model:
             self.model = copy.deepcopy(model)
         else:
