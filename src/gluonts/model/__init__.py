@@ -13,6 +13,7 @@
 
 __all__ = [
     "Estimator",
+    "DummyEstimator",
     "IncrementallyTrainable",
     "Predictor",
     "Forecast",
@@ -20,6 +21,6 @@ __all__ = [
     "QuantileForecast",
 ]
 
-from .estimator import Estimator, IncrementallyTrainable
+from .estimator import Estimator, IncrementallyTrainable, DummyEstimator
 from .predictor import Predictor
 from .forecast import Forecast, SampleForecast, QuantileForecast
