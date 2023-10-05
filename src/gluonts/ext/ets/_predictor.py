@@ -1,19 +1,17 @@
-from typing import Optional, Iterator
-from numpy.typing import ArrayLike
+from typing import Optional, Union, Iterator, Dict
 
 import numpy as np
 import pandas as pd
 
 from gluonts.core.component import validated
+from gluonts.dataset import Dataset
 from gluonts.dataset.common import DataEntry
 from gluonts.dataset.util import forecast_start
 from gluonts.model.forecast import Forecast, SampleForecast
 from gluonts.model.predictor import RepresentablePredictor
-from gluonts.dataset.common import Dataset
 
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
-from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -118,22 +116,16 @@ class ExponentialSmoothingPredictor(RepresentablePredictor):
         freq: Optional[str] = None,
         target_dtype: Optional[type] = np.float32,
         replace_neg_values: Optional[bool] = True,
-        trend: {"add", "mul", "additive", "multiplicative", None} = None,
-        damped_trend: bool = False,
-        seasonal: {"add", "mul", "additive", "multiplicative", None} = None,
-        seasonal_periods: int = None,
-        initialization_method: {
-            "estimated",
-            "heuristic",
-            "legacy-heuristic",
-            "known",
-            None,
-        } = "estimated",
+        trend: Optional[str] = None,
+        damped_trend: Optional[bool] = False,
+        seasonal: Optional[str] = None,
+        seasonal_periods: Optional[int] = None,
+        initialization_method: Optional[str] = "estimated",
         initial_level: float = None,
         initial_trend: float = None,
-        initial_seasonal: ArrayLike = None,
-        use_boxcox: {True, False, "log", float} = False,
-        bounds: dict[str, tuple[float, float]] = None,
+        initial_seasonal: Optional[str] = None,
+        use_boxcox: Union[str, bool, float] = False,
+        bounds: dict = None,
         missing: str = "none",
         **kwargs,
     ) -> None:
